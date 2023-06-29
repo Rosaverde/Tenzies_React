@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Dice from "./Dice"
 import "./style.css"
 
+
 export default function App()
 {
+    function allNewDice()
+    {
+        const newDice = []
+        for(let i = 0; i <10; i++)
+        {
+            newDice.push(Math.ceil(Math.random() * 6))
+        }
+        return newDice
+    }
+
+    const [dices, setDices] = React.useState(allNewDice)
+    console.log(dices)
+
+    const diceElements = dices.map( dice => <Dice value={dice} /> )
+
     return(
         <main>
-            <div className="board" > 
-                <Dice value="1"/>
-                <Dice value="2"/>
-                <Dice value="3"/>
-                <Dice value="4"/>
-                <Dice value="5"/>
-                <Dice value="5"/>
-                <Dice value="4"/>
-                <Dice value="3"/>
-                <Dice value="2"/>
-                <Dice value="1"/>
+            <div className="board" >
+                {diceElements}
             </div>
         </main>
     )
