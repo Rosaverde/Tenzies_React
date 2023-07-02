@@ -13,7 +13,15 @@ export default function App()
             newDice.push(Math.ceil(Math.random() * 6))
         }
         return newDice
+
     }
+
+    function rollDice()
+    {
+        setDices(allNewDice)
+    }
+
+    
 
     const [dices, setDices] = React.useState(allNewDice)
     console.log(dices)
@@ -25,6 +33,8 @@ export default function App()
             <div className="board" >
                 {diceElements}
             </div>
+            <button className="roll-button"
+            onClick={rollDice}>Roll Dice</button>
         </main>
     )
 }
