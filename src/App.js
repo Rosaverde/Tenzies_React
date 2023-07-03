@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Dice from "./Dice"
+import {nanoid} from "nanoid"
 import "./style.css"
 
 
@@ -10,23 +11,23 @@ export default function App()
         const newDice = []
         for(let i = 0; i <10; i++)
         {
-            newDice.push(Math.ceil(Math.random() * 6))
+            newDice.push({
+                value: Math.ceil(Math.random() * 6), 
+                isHeld: false,
+                id: nanoid()
+            })
         }
         return newDice
-
     }
 
     function rollDice()
     {
         setDices(allNewDice)
     }
-
     
-
     const [dices, setDices] = React.useState(allNewDice)
-    console.log(dices)
 
-    const diceElements = dices.map( dice => <Dice value={dice} /> )
+    const diceElements = dices.map( dice => <Dice key={dice.id} value={dice.value} /> )
 
     return(
         <main>

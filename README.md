@@ -9,6 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Topics in project:
 
 * property passing
+* state holding, modifying
 
 ## Available Scripts
 
