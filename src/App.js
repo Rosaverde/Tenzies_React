@@ -27,8 +27,7 @@ export default function App()
     
     const [dices, setDices] = React.useState(allNewDice)
 
-    const diceElements = dices.map( dice => <Dice key={dice.id} value={dice.value} /> )
-
+    const diceElements = dices.map( dice => <Dice key={dice.id} value={dice.value} isHeld={dice.isHeld} /> )
     return(
         <main>
             <div className="board" >
