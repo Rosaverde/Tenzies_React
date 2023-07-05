@@ -6,7 +6,11 @@ export default function Dice(props)
         backgroundColor : props.isHeld ? "#59E391" : "#FFF"
     }
     return(
-        <div className="dice" style={styles}>
+        <div 
+        className="dice" 
+        style={styles} 
+        onClick={props.toggle}
+        >
             <h2>{props.value}</h2>
         </div>
     )

@@ -24,10 +24,25 @@ export default function App()
     {
         setDices(allNewDice)
     }
+
+    function toggle(id)
+    {
+        setDices(prevDices => {
+            return prevDices.map((dice) => {
+                return dice.id === id ? {...dice, isHeld: !dice.isHeld} : dice
+            })
+        })
+    }
     
     const [dices, setDices] = React.useState(allNewDice)
 
-    const diceElements = dices.map( dice => <Dice key={dice.id} value={dice.value} isHeld={dice.isHeld} /> )
+    const diceElements = dices.map( dice => 
+    <Dice 
+    key={dice.id} 
+    value={dice.value} 
+    isHeld={dice.isHeld}
+    toggle={() => toggle(dice.id)}
+    /> )
     return(
         <main>
             <div className="board" >

@@ -10,6 +10,7 @@ Topics in project:
 
 * property passing
 * state holding, modifying
+    * modyfing state through child component
 
 ## Available Scripts
 
