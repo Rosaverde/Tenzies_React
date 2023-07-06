@@ -22,7 +22,10 @@ export default function App()
 
     function rollDice()
     {
-        setDices(allNewDice)
+        setDices(prevDices => 
+            {return prevDices.map((dice) => {
+            return dice.isHeld ? dice : {... dice, value: Math.ceil(Math.random() * 6)}
+        })})
     }
 
     function toggle(id)
