@@ -24,7 +24,7 @@ export default function App()
     {
         setDices(prevDices => 
             {return prevDices.map((dice) => {
-            return dice.isHeld ? dice : {... dice, value: Math.ceil(Math.random() * 6)}
+            return dice.isHeld ? dice : {...dice, value: Math.ceil(Math.random() * 6)}
         })})
     }
 
@@ -38,6 +38,18 @@ export default function App()
     }
     
     const [dices, setDices] = React.useState(allNewDice)
+    const [tenzies, setTenzies] = React.useState(false)
+    React.useEffect(() => {
+        const allHeld = dices.every(dice => dice.isHeld)
+        const firstValue = dices[0].value
+        const allSameValue = dices.every(dice => dice.value === firstValue)
+        if (allHeld && allSameValue)
+        {
+            setTenzies(true)
+            console.log("You won!")
+        }
+    
+    },[dices])
 
     const diceElements = dices.map( dice => 
     <Dice 

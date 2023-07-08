@@ -11,6 +11,7 @@ Topics in project:
 * property passing
 * state holding, modifying
     * modyfing state through child component
+* useEffect to keep in sync two states
 
 ## Available Scripts
 
