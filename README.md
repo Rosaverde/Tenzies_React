@@ -12,6 +12,7 @@ Topics in project:
 * state holding, modifying
     * modyfing state through child component
 * useEffect to keep in sync two states
+* conditional rendering components
 
 ## Available Scripts
 
